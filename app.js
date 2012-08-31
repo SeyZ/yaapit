@@ -43,7 +43,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.post('/', routes.post_index);
-app.get('/paste/:magic', routes.get_paste);
+app.get('/paste/:token', routes.get_paste);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
