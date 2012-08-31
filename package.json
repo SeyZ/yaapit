@@ -9,5 +9,6 @@
     "ejs": "*",
     "stylus": "*",
     "mongoose": "3.1.0"
+    "bootstrap-stylus": "0.2.1";
   }
 }

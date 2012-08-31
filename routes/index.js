@@ -1,13 +1,6 @@
-var mongoose = require('mongoose');
-var db = mongoose.createConnection('localhost', 'yaaapaste');
+var crypto = require('crypto'),
+    Paste = require('../models/paste').Paste;
 
-var pasteSchema = mongoose.Schema({
-    token: 'string',
-    content: 'string'
-});
-var Paste = db.model('Paste', pasteSchema);
-
-var crypto = require('crypto');
 var cipher = crypto.createCipher('aes-256-cbc','InmbuvP6Z8')
 
 /* Get the home page */
