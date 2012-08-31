@@ -1,14 +1,30 @@
 {
-  "name": "YaPaste",
-  "version": "0.0.1",
-  "scripts": {
-    "start": "node app"
+  "name": "yaaapaste",
+  "preferGlobal": "true",
+  "version": "0.0.1-3",
+  "author": "Sandro Munda <munda.sandro@gmail.com>",
+  "description": "Yaaa paste !",
+  "contributors": [],
+  "main": "app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeyZ/Yaaa-Paste.git"
   },
   "dependencies": {
     "express": "3.0.0rc3",
     "ejs": "*",
     "stylus": "*",
-    "mongoose": "3.1.0"
-    "bootstrap-stylus": "0.2.1";
+    "mongoose": "3.1.0",
+    "bootstrap-stylus": "0.2.1"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "noAnalyze": true,
+  "license": "MIT",
+  "subdomain": "seyz.yaaapaste",
+  "scripts": {
+    "start": "app.js"
   }
 }
