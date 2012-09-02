@@ -11,6 +11,15 @@ exports.index = function(req, res) {
 /* Create a new paste. */
 exports.post_index = function(req, res) {
 
+  var content = req.body.content;
+
+  // Limit the paste size (encrypted) to ~2MB.
+  var content_size = Buffer.byteLength(content, 'utf8');
+  if (content_size > 2000000) {
+    res.send(403, "Paste too big.");
+    return;
+  }
+
   // Generate a random token.
   generateToken(function(token) {
     var url_path = '/paste/' + token;
