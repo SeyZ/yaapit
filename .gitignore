@@ -16,4 +16,5 @@ node_modules/
 
 *.swp
 
+yaap.db
 public/stylesheets/style.css

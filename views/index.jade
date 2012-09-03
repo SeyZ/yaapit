@@ -1,9 +1,18 @@
 extends layout
 
+block styles
+  link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
 block content
 
+  .row#title
+    h1 Yaap it !
+    h3 Secured client side encryption paste.
+
   .row
-    #pasteSubmit.btn.btn-primary Yaaa Paste !
+    #pasteSubmit.btn.btn-primary.btn-large Yaaa Paste !
     a#pasteUrl(href='#')
     span#error
   .row

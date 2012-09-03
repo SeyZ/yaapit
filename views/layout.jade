@@ -2,10 +2,13 @@ doctype 5
 html
   head
     title Yaaa Paste !
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    block styles
   body
     block content
 
     script(type='text/javascript', src='/javascripts/jquery-1.8.0.min.js')
-    script(type='text/javascript', src='/javascripts/gibberish-aes.min.js')
+    script(type='text/javascript', src='/javascripts/base64.min.js')
+    script(type='text/javascript', src='/javascripts/rawdeflate.min.js')
+    script(type='text/javascript', src='/javascripts/rawinflate.min.js')
+    script(type='text/javascript', src='/javascripts/sjcl.js')
     script(type='text/javascript', src='/javascripts/yapaste.js')

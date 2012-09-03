@@ -1,7 +1,4 @@
-var crypto = require('crypto'),
-    Paste = require('../models/paste').Paste;
-
-var cipher = crypto.createCipher('aes-256-cbc','InmbuvP6Z8')
+var db = require('dirty')('yaap.db');
 
 /* Get the home page */
 exports.index = function(req, res) {
@@ -24,13 +21,7 @@ exports.post_index = function(req, res) {
   generateToken(function(token) {
     var url_path = '/paste/' + token;
 
-    var paste = new Paste({
-      token: token,
-      content: req.body.content
-    });
-
-    paste.save(function (err) {
-      if (err) throw err;
+    db.set(token, { content: req.body.content }, function() {
       res.send(url_path);
     });
   });
@@ -38,17 +29,13 @@ exports.post_index = function(req, res) {
 
 /* Get a paste */
 exports.get_paste = function(req, res) {
-  var request = { token: req.params.token };
 
-  Paste.findOne(request, function(err, entry) {
-    if (err) throw err;
-
-    if (entry) {
-      res.render('paste', {paste: entry.content});
-    } else {
-      res.send(404);
-    }
-  });
+  var entry = db.get(req.params.token);
+  if (entry) {
+    res.render('paste', { paste: entry.content });
+  } else {
+    res.send(404);
+  }
 };
 
 var generateToken = function(callback) {
