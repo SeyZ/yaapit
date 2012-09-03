@@ -42,7 +42,12 @@ exports.get_paste = function(req, res) {
 
   Paste.findOne(request, function(err, entry) {
     if (err) throw err;
-    res.render('paste', {paste: entry.content});
+
+    if (entry) {
+      res.render('paste', {paste: entry.content});
+    } else {
+      res.send(404);
+    }
   });
 };
 
