@@ -1,14 +1,14 @@
 {
-  "name": "yaaapaste",
+  "name": "yaapit",
   "preferGlobal": "true",
   "version": "0.0.1",
   "author": "Sandro Munda <munda.sandro@gmail.com>",
-  "description": "Yaaa paste !",
+  "description": "Secured client side encryption paste.",
   "contributors": [],
   "main": "app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SeyZ/Yaaa-Paste.git"
+    "url": "https://github.com/SeyZ/yaapit.git"
   },
   "dependencies": {
     "express": "3.0.0rc3",
@@ -22,7 +22,7 @@
   },
   "noAnalyze": true,
   "license": "MIT",
-  "subdomain": "seyz.yaaapaste",
+  "subdomain": "seyz.yaapit",
   "scripts": {
     "start": "app.js"
   }
