@@ -1,7 +1,7 @@
 {
   "name": "yaapit",
   "preferGlobal": "true",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "author": "Sandro Munda <munda.sandro@gmail.com>",
   "description": "Secured client side encryption paste.",
   "contributors": [],
