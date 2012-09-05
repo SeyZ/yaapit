@@ -88,10 +88,12 @@ $(document).ready(function() {
         var url = get_url(data, secret_key);
         $('#pasteUrl').text(url);
         $('#pasteUrl').attr('href', url);
+        $('#pasteUrl').css('visibility', 'visible');
+
         $("#pasteSubmit").removeAttr('disabled');
         paste_enabled = false;
       }).error(function(data) {
-        $('#pasteUrl').hide();
+        $('#pasteUrl').attr('visibility', 'hidden');
 
         $("#error").html('<p>' + data.responseText + '</p>').show();
         console.log("Error occured with status: " + data.status);

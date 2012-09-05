@@ -10,12 +10,12 @@ block content
     img#forkme(alt="Fork me on Github", src="/images/forkme.png")
 
   .row#title
-    h1 Yaap it !
-    h3 Secured client side encryption paste.
+    h3 Paste anything you want, your data is client-side encrypted !
 
-  .row
-    #pasteSubmit.btn.btn-primary.btn-large Yaap it !
-    a#pasteUrl(href='#')
-    span#error
-  .row
-    textarea#pasteTa
+  #paste
+    .row#pasteButtons
+      a#pasteUrl(href='#') no paste url
+      #pasteSubmit.btn.btn-primary.btn-large Yaap it !
+      span#error
+    .row
+      textarea#pasteTa
