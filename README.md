@@ -1,13 +1,11 @@
 # Yaap it !
 
+http://yaap.it
+
 ## What is it ?
 
-A secured client-side encryption paste service. It's a **community driven**
-project !
+A client-side encrypted paste service. For now, the project is really simple, no extra feature.
+Go to the issue list to ask for any features. If you are a coder, don't hesitate to pull request.
 
-## Goal of the project.
-Build together a fully **useful** paste service. Feature requests are really
-welcome !
-
-Are you a hacker ? Great, go hack the code and pull request.
+It's a *community-driven project* !
 
