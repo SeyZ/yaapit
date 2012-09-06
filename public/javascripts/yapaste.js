@@ -45,6 +45,7 @@ function get_url(token, secret_key) {
 }
 
 $(document).ready(function() {
+  $("#pasteTa").focus();
 
   // Paste page ?
   if (is_paste_page()) {
@@ -69,6 +70,13 @@ $(document).ready(function() {
       return;
     }
 
+    var content = $('#pasteTa').val();
+
+    // If there's no text to paste, ignore the click.
+    if (!content.length) {
+      return;
+    }
+
     // Set the paste flag to true. A paste task is now running.
     paste_enabled = true;
 
@@ -78,7 +86,6 @@ $(document).ready(function() {
     // We wait 100ms in order to be sure that the animation of the disable
     // paste submit button is done.
     setTimeout(function() {
-      var content = $('#pasteTa').val();
       var secret_key = generateRandom();
       var encrypted = sjcl.encrypt(secret_key, compress(content));
 
