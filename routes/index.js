@@ -9,6 +9,7 @@ exports.index = function(req, res) {
 exports.post_index = function(req, res) {
 
   var content = req.body.content;
+  var burn = req.body.burn;
 
   // Limit the paste size (encrypted) to ~2MB.
   var content_size = Buffer.byteLength(content, 'utf8');
@@ -20,8 +21,12 @@ exports.post_index = function(req, res) {
   // Generate a random token.
   generateToken(function(token) {
     var url_path = '/paste/' + token;
+    var data = {
+      content: req.body.content,
+      burn: burn === 'true',
+    };
 
-    db.set(token, { content: req.body.content }, function() {
+    db.set(token, data , function() {
       res.send(url_path);
     });
   });
@@ -32,6 +37,9 @@ exports.get_paste = function(req, res) {
 
   var entry = db.get(req.params.token);
   if (entry) {
+    if (entry.burn) {
+      db.rm(req.params.token);
+    }
     res.render('paste', { paste: entry.content });
   } else {
     res.send(404);

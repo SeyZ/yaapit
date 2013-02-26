@@ -88,8 +88,12 @@ $(document).ready(function() {
     setTimeout(function() {
       var secret_key = generateRandom();
       var encrypted = sjcl.encrypt(secret_key, compress(content));
+      var payload = {
+        content: encrypted,
+        burn: $('input[name="burn"]').is(':checked'),
+      };
 
-      $.post("/", {content: encrypted}).success(function(data) {
+      $.post("/", payload).success(function(data) {
         $("#error").html('').hide();
 
         var url = get_url(data, secret_key);
