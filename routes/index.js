@@ -1,4 +1,5 @@
-var db = require('dirty')('yaap.db');
+var levelup = require('level');
+var db = levelup('./yaap.db')
 
 /* Get the home page */
 exports.index = function(req, res) {
@@ -7,7 +8,6 @@ exports.index = function(req, res) {
 
 /* Create a new paste. */
 exports.post_index = function(req, res) {
-
   var content = req.body.content;
   var burn = req.body.burn;
 
@@ -26,7 +26,10 @@ exports.post_index = function(req, res) {
       burn: burn === 'true',
     };
 
-    db.set(token, data , function() {
+    db.put(token, data, {
+      valueEncoding: 'json'
+    }, function(err) {
+      if (err) { return res.send(500); }
       res.send(url_path);
     });
   });
@@ -34,16 +37,19 @@ exports.post_index = function(req, res) {
 
 /* Get a paste */
 exports.get_paste = function(req, res) {
-
-  var entry = db.get(req.params.token);
-  if (entry) {
-    if (entry.burn) {
-      db.rm(req.params.token);
+  db.get(req.params.token, {
+    valueEncoding: 'json'
+  }, function (err, entry) {
+    console.log(entry);
+    if (entry) {
+      if (entry.burn) {
+        db.del(req.params.token);
+      }
+      res.render('paste', { paste: entry.content });
+    } else {
+      res.send(404);
     }
-    res.render('paste', { paste: entry.content });
-  } else {
-    res.send(404);
-  }
+  });
 };
 
 var generateToken = function(callback) {

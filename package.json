@@ -1,28 +1,20 @@
 {
   "name": "yaapit",
-  "preferGlobal": "true",
-  "version": "0.0.1-1",
-  "author": "Sandro Munda <munda.sandro@gmail.com>",
+  "version": "0.0.2",
+  "author": "Sandro Munda <sandro@munda.me>",
   "description": "Secured client side encryption paste.",
-  "contributors": [],
   "main": "app",
   "repository": {
     "type": "git",
     "url": "https://github.com/SeyZ/yaapit.git"
   },
   "dependencies": {
-    "express": "3.0.0rc3",
-    "jade": "0.27.2",
-    "dirty": "0.9.6",
-    "less-middleware": "0.1.5"
+    "express": "3.1.0",
+    "jade": "*",
+    "less-middleware": "~0.1.11",
+    "level": "~0.10.0"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  },
-  "noAnalyze": true,
   "license": "MIT",
-  "subdomain": "seyz.yaapit",
   "scripts": {
     "start": "app.js"
   }
