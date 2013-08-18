@@ -18,3 +18,5 @@ node_modules/
 
 yaap.db
 public/stylesheets/style.css
+
+.vagrant/
